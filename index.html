@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Egypt Signs</title>
+    <meta name="description" content="">
+    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+</head>
+
+<body>
+    <header>
+        Egypt Most Beutiful Signs
+    </header>
+    <div class="map-container">
+        <div class="row map-row">
+            <div class="col-sm-3">
+                <div class="input-group">
+
+                    <input type="text" placeholder="search your favourite place" class="form-control" data-bind="value:query, valueUpdate: 'afterkeydown', event: {'keyup': queryChanged }">
+                </div>
+
+                <ul class="signs" data-bind="foreach: signs">
+                    <li data-bind="visible: show, click: function(d,e){$parent.clickAction(d)}">
+                        <span data-bind="text: name"> </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-8">
+                <div id="googleMap"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.min.js"></script>
+    <script src="js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWVKzSd8cpkVkLeGPmp180SWgv52iAJ84&callback=mapInit"
+        onerror="errorHandler()"></script>
+</body>
+
+</html>
